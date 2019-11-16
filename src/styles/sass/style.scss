@@ -1,1 +1,11 @@
 @import "~antd/dist/antd.css";
+body {
+  background-color: rgb(237, 238, 238);
+}
+.navbar {
+  background-color: #ffffff;
+  &__title {
+    font-size: 20px;
+    font-weight: 300;
+  }
+}

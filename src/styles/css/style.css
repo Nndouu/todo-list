@@ -1,1 +1,9 @@
 @import url(~antd/dist/antd.css);
+body {
+  background-color: #edeeee; }
+
+.navbar {
+  background-color: #ffffff; }
+  .navbar__title {
+    font-size: 20px;
+    font-weight: 300; }
