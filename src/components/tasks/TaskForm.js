@@ -8,6 +8,7 @@ const TaskForm = ({ current, setCurrent, setTasks, tasks }) => {
     priority: 0,
     type: "unfinished"
   });
+  const [error, setError] = useState("");
 
   const { task_description, priority, type } = task;
 
@@ -41,7 +42,7 @@ const TaskForm = ({ current, setCurrent, setTasks, tasks }) => {
       );
       setTasks([res.data, ...tasks]);
     } catch (err) {
-      console.log(err.response.msg);
+      setError("Task cannot be repeated or exceeds 240 characters");
     }
   };
 
@@ -62,7 +63,7 @@ const TaskForm = ({ current, setCurrent, setTasks, tasks }) => {
         tasks.map(task => (task._id === res.data._id ? res.data : task))
       );
     } catch (err) {
-      console.log(err.response.msg);
+      setError("Task cannot be repeated or exceeds 240 characters");
     }
   };
 
@@ -101,6 +102,7 @@ const TaskForm = ({ current, setCurrent, setTasks, tasks }) => {
             name="task_description"
             value={task_description}
             onChange={onChange}
+            required
           ></input>
         </div>
         <div className="form-group">
@@ -153,6 +155,7 @@ const TaskForm = ({ current, setCurrent, setTasks, tasks }) => {
             Clear
           </Button>
         )}
+        {error && <div className="text-danger">{error}</div>}
       </form>
     </Fragment>
   );

@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Button } from "antd";
 import axios from "axios";
 
@@ -14,7 +14,8 @@ const Task = ({
   unFinishedList,
   finishedList
 }) => {
-  const { task_description, type, priority } = task;
+  const { task_description, priority } = task;
+  const { error, setError } = useState("");
 
   const onDelete = () => {
     deleteTask(task);
@@ -44,7 +45,7 @@ const Task = ({
         ? setUnfinishedList([task, ...unFinishedList])
         : setFinishedList([task, ...finishedList]);
     } catch (err) {
-      console.log(err.response.msg);
+      setError("An error occurred, please reload the page");
     }
   };
 
@@ -65,7 +66,7 @@ const Task = ({
       setTasks(tasks.filter(taskCheck => taskCheck._id !== task._id));
       setCurrentList(tasks.filter(taskCheck => taskCheck._id !== task._id));
     } catch (err) {
-      console.log(err);
+      setError("An error occurred, please reload the page");
     }
   };
 
@@ -88,6 +89,7 @@ const Task = ({
         </Button>
         <p className="float-right mt-2">Priority:{priority}</p>
       </div>
+      {error && <div className="text-danger">{error}</div>}
     </Fragment>
   );
 };

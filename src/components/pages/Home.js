@@ -23,6 +23,7 @@ const Home = () => {
   useEffect(() => {
     setLoading(true);
     getTask();
+    // eslint-disable-next-line
   }, []);
 
   const antIcon = <Icon type="loading" style={{ fontSize: 32 }} spin />;

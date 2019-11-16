@@ -63,7 +63,11 @@ const Register = () => {
                 type="submit"
                 value="Register"
                 className="btn btn-primary mt-3"
+                disabled
               ></input>
+              <div className="mt-3 text-secondary">
+                Login and registration functions are temporarily unavailable
+              </div>
             </form>
           </div>
         </div>
