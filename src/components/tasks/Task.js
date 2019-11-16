@@ -10,7 +10,9 @@ const Task = ({
   setCurrentList,
   currentList,
   setFinishedList,
-  setUnfinishedList
+  setUnfinishedList,
+  unFinishedList,
+  finishedList
 }) => {
   const { task_description, type, priority } = task;
 
@@ -38,6 +40,9 @@ const Task = ({
       setCurrentList(
         currentList.filter(taskCheck => taskCheck._id !== task._id)
       );
+      task.type === "unfinished"
+        ? setUnfinishedList([task, ...unFinishedList])
+        : setFinishedList([task, ...finishedList]);
     } catch (err) {
       console.log(err.response.msg);
     }

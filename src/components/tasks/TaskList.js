@@ -48,6 +48,8 @@ const TaskList = ({ tasks, setCurrent, setTasks }) => {
               currentList={currentList}
               setFinishedList={setFinishedList}
               setUnfinishedList={setUnfinishedList}
+              unFinishedList={unFinishedList}
+              finishedList={finishedList}
             />
           </div>
         ))}
