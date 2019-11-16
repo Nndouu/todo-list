@@ -5,7 +5,6 @@ import Register from "./components/pages/Register";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import Navbar from "./components/layout/Navbar";
-// import PrivateRoute from "./components/routing/PrivateRoute";
 
 import "./styles/css/bootstrap/bootstrap.css";
 import "./styles/css/style.css";

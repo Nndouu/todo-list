@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 
 const Register = () => {
   const [user, setUser] = useState({
@@ -12,41 +11,8 @@ const Register = () => {
 
   const onChange = e => setUser({ ...user, [e.target.name]: e.target.value });
 
-  //Register User
-  // const register = async formData => {
-  //   const config = {
-  //     headers: {
-  //       "Content-type": "application/json"
-  //     }
-  //   };
-  //   try {
-  //     const res = await axios.post("/api/users", formData, config);
-  //     dispatch({
-  //       type: REGISTER_SUCCESS,
-  //       payload: res.data
-  //     });
-  //     loadUser();
-  //   } catch (err) {
-  //     dispatch({
-  //       type: REGISTER_FAIL,
-  //       payload: err.response.data.msg
-  //     });
-  //   }
-  // };
-
-  const onSubmit = e => {
-    e.preventDefault();
-    if (username === "" || password === "") {
-      // setAlert("Please enter all fields", "danger");
-    } else if (password !== password2) {
-      // setAlert("Passwords do not match", "danger");
-    } else {
-      // register({
-      //   username,
-      //   password
-      // });
-    }
-  };
+  // TODO:Register user when submit form
+  const onSubmit = e => {};
 
   return (
     <div className="register-form text-center">

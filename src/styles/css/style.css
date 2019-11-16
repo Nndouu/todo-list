@@ -19,3 +19,17 @@ body {
   padding: 10px;
   background-color: white;
   box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.1); }
+
+.task {
+  background-color: white;
+  box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.1);
+  display: block;
+  padding: 10px 20px;
+  margin: 10px 20px; }
+  .task__description {
+    font-size: 20px;
+    min-height: 80px; }
+  .task__type {
+    font-size: 14px;
+    float: right;
+    color: #746f7e; }

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Form, Icon, Input, Button } from "antd";
 
 const Login = () => {
   const [user, setUser] = useState({
@@ -10,17 +9,8 @@ const Login = () => {
 
   const onChange = e => setUser({ ...user, [e.target.name]: e.target.value });
 
-  const onSubmit = e => {
-    e.preventDefault();
-    if (username === "" || password === "") {
-      // setAlert("Please fill in all fields", "danger");
-    } else {
-      // login({
-      //   email,
-      //   password
-      // });
-    }
-  };
+  // TODO:Login user when submit form
+  const onSubmit = e => {};
 
   const loginForm = (
     <div className="login-form text-center">
