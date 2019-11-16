@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
@@ -12,7 +12,7 @@ import "./styles/css/style.css";
 
 function App() {
   return (
-    <div className="App">
+    <Fragment>
       <Router>
         <Navbar />
         <Switch>
@@ -24,7 +24,7 @@ function App() {
           </div>
         </Switch>
       </Router>
-    </div>
+    </Fragment>
   );
 }
 

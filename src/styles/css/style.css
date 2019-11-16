@@ -1,9 +1,21 @@
 @import url(~antd/dist/antd.css);
 body {
-  background-color: #edeeee; }
+  background-color: whitesmoke;
+  font-weight: 300; }
 
 .navbar {
-  background-color: #ffffff; }
+  background-color: #ffffff;
+  box-shadow: 0 5px 50px 0 rgba(0, 0, 0, 0.1); }
   .navbar__title {
     font-size: 20px;
     font-weight: 300; }
+
+.register-form__wrapper {
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.1); }
+
+.login-form__wrapper {
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.1); }

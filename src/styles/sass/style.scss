@@ -1,11 +1,28 @@
 @import "~antd/dist/antd.css";
 body {
-  background-color: rgb(237, 238, 238);
+  background-color: rgb(245, 245, 245);
+  font-weight: 300;
 }
 .navbar {
   background-color: #ffffff;
+  box-shadow: 0 5px 50px 0 rgba(0, 0, 0, 0.1);
   &__title {
     font-size: 20px;
     font-weight: 300;
+  }
+}
+.register-form {
+  &__wrapper {
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.1);
+  }
+}
+
+.login-form {
+  &__wrapper {
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.1);
   }
 }
