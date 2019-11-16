@@ -147,7 +147,7 @@ const TaskForm = ({ current, setCurrent, setTasks, tasks }) => {
           </Fragment>
         )}
         <Button className="mt-2" type="primary" htmlType="submit" block>
-          {current ? "Update Contact" : "Add Contact"}
+          {current ? "Update Task" : "Add Task"}
         </Button>
 
         {current && (
