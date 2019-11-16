@@ -1,12 +1,54 @@
 import React, { Fragment } from "react";
+import { Button } from "antd";
 import axios from "axios";
 
-const Task = ({ task, setCurrent, tasks, setTasks }) => {
+const Task = ({
+  task,
+  setCurrent,
+  tasks,
+  setTasks,
+  setCurrentList,
+  currentList,
+  setFinishedList,
+  setUnfinishedList
+}) => {
   const { task_description, type, priority } = task;
 
   const onDelete = () => {
     deleteTask(task);
     setCurrent(null);
+  };
+
+  // Update task
+  const update = async task => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+    try {
+      const res = await axios.put(
+        `https://todo-list-nndou-api.herokuapp.com/api/tasks/${task._id}`,
+        task,
+        config
+      );
+      setTasks(
+        tasks.map(task => (task._id === res.data._id ? res.data : task))
+      );
+      setCurrentList(
+        currentList.filter(taskCheck => taskCheck._id !== task._id)
+      );
+    } catch (err) {
+      console.log(err.response.msg);
+    }
+  };
+
+  // Change task type
+  const onChangeType = () => {
+    task.type === "unfinished"
+      ? (task.type = "finished")
+      : (task.type = "unfinished");
+    update(task);
   };
 
   //Delete task
@@ -16,6 +58,7 @@ const Task = ({ task, setCurrent, tasks, setTasks }) => {
         `https://todo-list-nndou-api.herokuapp.com/api/tasks/${task._id}`
       );
       setTasks(tasks.filter(taskCheck => taskCheck._id !== task._id));
+      setCurrentList(tasks.filter(taskCheck => taskCheck._id !== task._id));
     } catch (err) {
       console.log(err);
     }
@@ -24,23 +67,20 @@ const Task = ({ task, setCurrent, tasks, setTasks }) => {
   return (
     <Fragment>
       <div className="task">
-        <h5 className="task__description text-left">
-          {task_description}
-          <span className="task__type">
-            {type.charAt(0).toUpperCase() + type.slice(1)}
-          </span>
-        </h5>
-        <button
-          className="btn btn-secondary btn-sm"
-          //Set current contact when click Edit btn
+        <h5 className="task__description text-left">{task_description}</h5>
+        <Button
+          className="task__btn"
+          type="primary"
           onClick={() => setCurrent(task)}
         >
           Edit
-        </button>
-        <button className="btn btn-danger btn-sm ml-1" onClick={onDelete}>
+        </Button>
+        <Button className="task__btn" type="danger" onClick={onDelete}>
           Delete
-        </button>
-        <button className="btn btn-warning btn-sm ml-1">Unfinish</button>
+        </Button>
+        <Button className="task__btn" onClick={onChangeType}>
+          {task.type === "finished" ? "Unfinish" : "Finish"}
+        </Button>
         <p className="float-right mt-2">Priority:{priority}</p>
       </div>
     </Fragment>

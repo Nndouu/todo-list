@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
+import { Button } from "antd";
 import axios from "axios";
 
 const TaskForm = ({ current, setCurrent, setTasks, tasks }) => {
@@ -86,10 +87,10 @@ const TaskForm = ({ current, setCurrent, setTasks, tasks }) => {
   return (
     <Fragment>
       <form
-        className="contact-form text-center mx-5 mt-5 pt-5"
+        className="task-form text-center mx-5 mt-5 pt-5"
         onSubmit={onSubmit}
       >
-        <h2 className="text-primary text-center pb-5">
+        <h2 className="text-primary pb-5">
           {current ? "Edit Task" : "Add Task"}
         </h2>
         <div className="form-group">
@@ -114,7 +115,7 @@ const TaskForm = ({ current, setCurrent, setTasks, tasks }) => {
         </div>
         {current && (
           <Fragment>
-            <h6>Contact Type</h6>
+            <h6>Task Type</h6>
             <div className="form-check form-check-inline">
               <input
                 className="form-check-input"

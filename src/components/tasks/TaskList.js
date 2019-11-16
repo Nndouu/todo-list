@@ -5,10 +5,10 @@ import Task from "./Task";
 const TaskList = ({ tasks, setCurrent, setTasks }) => {
   const [finishedList, setFinishedList] = useState(
     tasks.filter(taskCheck => taskCheck.type === "finished")
-  ); // eslint-disable-next-line
+  );
   const [unFinishedList, setUnfinishedList] = useState(
     tasks.filter(taskCheck => taskCheck.type === "unfinished")
-  ); // eslint-disable-next-line
+  );
   const [currentList, setCurrentList] = useState(unFinishedList);
 
   const onChange = e => {
@@ -44,6 +44,10 @@ const TaskList = ({ tasks, setCurrent, setTasks }) => {
               setCurrent={setCurrent}
               tasks={tasks}
               setTasks={setTasks}
+              setCurrentList={setCurrentList}
+              currentList={currentList}
+              setFinishedList={setFinishedList}
+              setUnfinishedList={setUnfinishedList}
             />
           </div>
         ))}

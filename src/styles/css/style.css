@@ -20,6 +20,9 @@ body {
   background-color: white;
   box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.1); }
 
+.task-form .h2 {
+  font-weight: 300; }
+
 .task {
   background-color: white;
   box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.1);
@@ -28,8 +31,7 @@ body {
   margin: 10px 20px; }
   .task__description {
     font-size: 20px;
+    font-weight: 300;
     min-height: 80px; }
-  .task__type {
-    font-size: 14px;
-    float: right;
-    color: #746f7e; }
+  .task__btn {
+    margin: 0 3px; }
