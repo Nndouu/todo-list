@@ -1,5 +1,8 @@
 import React from "react";
+import { Form, Icon, Input, Button } from "antd";
 
-export const Login = () => {
-  return <div></div>;
+const Login = () => {
+  return <div>login</div>;
 };
+
+export default Login;
