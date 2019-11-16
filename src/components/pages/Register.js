@@ -1,22 +1,48 @@
 import React, { useState } from "react";
-import { Button } from "antd";
+import axios from "axios";
 
 const Register = () => {
   const [user, setUser] = useState({
     username: "",
-    password: ""
+    password: "",
+    password2: ""
   });
-  const { username, password } = user;
+
+  const { username, password, password2 } = user;
 
   const onChange = e => setUser({ ...user, [e.target.name]: e.target.value });
+
+  //Register User
+  // const register = async formData => {
+  //   const config = {
+  //     headers: {
+  //       "Content-type": "application/json"
+  //     }
+  //   };
+  //   try {
+  //     const res = await axios.post("/api/users", formData, config);
+  //     dispatch({
+  //       type: REGISTER_SUCCESS,
+  //       payload: res.data
+  //     });
+  //     loadUser();
+  //   } catch (err) {
+  //     dispatch({
+  //       type: REGISTER_FAIL,
+  //       payload: err.response.data.msg
+  //     });
+  //   }
+  // };
 
   const onSubmit = e => {
     e.preventDefault();
     if (username === "" || password === "") {
-      // setAlert("Please fill in all fields", "danger");
+      // setAlert("Please enter all fields", "danger");
+    } else if (password !== password2) {
+      // setAlert("Passwords do not match", "danger");
     } else {
-      // login({
-      //   email,
+      // register({
+      //   username,
       //   password
       // });
     }
@@ -50,18 +76,20 @@ const Register = () => {
                   className="form-control"
                   placeholder="Enter your password"
                   aria-label="Password"
+                  minLength="6"
                   required
                 ></input>
               </div>
               <div className="form-group">
                 <input
                   type="password"
-                  name="password"
-                  value={password}
+                  name="password2"
+                  value={password2}
                   onChange={onChange}
                   className="form-control"
                   placeholder="Confirm your password"
                   aria-label="Password"
+                  minLength="6"
                   required
                 ></input>
               </div>

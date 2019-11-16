@@ -1,5 +1,5 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 export const Task = () => {
-  return <div></div>;
+  return <Fragment>Task</Fragment>;
 };

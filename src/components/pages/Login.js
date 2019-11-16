@@ -27,7 +27,7 @@ const Login = () => {
       <div className="row mt-5">
         <div className="col-md-5 m-auto p-0">
           <div className="login-form__wrapper">
-            <h2 className="text-center text-primary">Sign in</h2>
+            <h2 className="text-center text-primary pt-3">Sign in</h2>
             <form onSubmit={onSubmit} className="m-4">
               <div className="form-group">
                 <input
