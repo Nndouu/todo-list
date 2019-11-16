@@ -90,9 +90,9 @@ const TaskForm = ({ current, setCurrent, setTasks, tasks }) => {
         className="task-form text-center mx-5 mt-5 pt-5"
         onSubmit={onSubmit}
       >
-        <h2 className="text-primary pb-5">
+        <h3 className="text-primary pb-5">
           {current ? "Edit Task" : "Add Task"}
-        </h2>
+        </h3>
         <div className="form-group">
           <input
             className="form-control"
@@ -144,18 +144,14 @@ const TaskForm = ({ current, setCurrent, setTasks, tasks }) => {
             </div>
           </Fragment>
         )}
-        <button type="submit" className="btn btn-primary btn-block mt-4">
+        <Button className="mt-2" type="primary" htmlType="submit" block>
           {current ? "Update Contact" : "Add Contact"}
-        </button>
+        </Button>
+
         {current && (
-          <div>
-            <button
-              className="btn btn-secondary btn-block mt-1"
-              onClick={clearAll}
-            >
-              Clear
-            </button>
-          </div>
+          <Button className="mt-1" onClick={clearAll} block>
+            Clear
+          </Button>
         )}
       </form>
     </Fragment>

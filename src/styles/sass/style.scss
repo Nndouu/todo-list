@@ -1,8 +1,10 @@
 @import "~antd/dist/antd.css";
+
 body {
   background-color: rgb(245, 245, 245);
   font-weight: 300;
 }
+
 .navbar {
   background-color: #ffffff;
   box-shadow: 0 5px 50px 0 rgba(0, 0, 0, 0.1);
@@ -11,6 +13,7 @@ body {
     font-weight: 300;
   }
 }
+
 .register-form {
   &__wrapper {
     padding: 10px;
@@ -26,11 +29,7 @@ body {
     box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.1);
   }
 }
-.task-form {
-  .h2 {
-    font-weight: 300;
-  }
-}
+
 .task {
   background-color: white;
   box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.1);

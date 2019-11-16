@@ -20,9 +20,6 @@ body {
   background-color: white;
   box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.1); }
 
-.task-form .h2 {
-  font-weight: 300; }
-
 .task {
   background-color: white;
   box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.1);
