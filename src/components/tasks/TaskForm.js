@@ -2,7 +2,14 @@ import React, { Fragment, useState, useEffect } from "react";
 import { Button } from "antd";
 import axios from "axios";
 
-const TaskForm = ({ current, setCurrent, setTasks, tasks }) => {
+const TaskForm = ({
+  current,
+  setCurrent,
+  setTasks,
+  tasks,
+  unFinishedList,
+  setUnfinishedList
+}) => {
   const [task, setTask] = useState({
     task_description: "",
     priority: 0,
@@ -19,7 +26,7 @@ const TaskForm = ({ current, setCurrent, setTasks, tasks }) => {
     } else {
       setTask({
         task_description: "",
-        priority: "",
+        priority: 0,
         type: "unfinished"
       });
     }
@@ -41,6 +48,7 @@ const TaskForm = ({ current, setCurrent, setTasks, tasks }) => {
         config
       );
       setTasks([res.data, ...tasks]);
+      setUnfinishedList([res.data, ...unFinishedList]);
     } catch (err) {
       setError("Task cannot be repeated or exceeds 240 characters");
     }
@@ -113,6 +121,7 @@ const TaskForm = ({ current, setCurrent, setTasks, tasks }) => {
             name="priority"
             value={priority}
             onChange={onChange}
+            required
           ></input>
         </div>
         {current && (

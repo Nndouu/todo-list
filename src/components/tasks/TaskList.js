@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { Radio } from "antd";
 import Task from "./Task";
 
-const TaskList = ({ tasks, setCurrent, setTasks }) => {
-  const [finishedList, setFinishedList] = useState(
-    tasks.filter(taskCheck => taskCheck.type === "finished")
-  );
-  const [unFinishedList, setUnfinishedList] = useState(
-    tasks.filter(taskCheck => taskCheck.type === "unfinished")
-  );
-  const [currentList, setCurrentList] = useState(unFinishedList);
-
+const TaskList = ({
+  tasks,
+  setCurrent,
+  setTasks,
+  finishedList,
+  setFinishedList,
+  unFinishedList,
+  setUnfinishedList,
+  currentList,
+  setCurrentList
+}) => {
   const onChange = e => {
     if (e.target.value === "unfinished") {
       setCurrentList(unFinishedList);
@@ -23,10 +25,10 @@ const TaskList = ({ tasks, setCurrent, setTasks }) => {
 
   const selecter = (
     <div className="mx-4">
-      <Radio.Group onChange={onChange} defaultValue="unfinished">
+      <Radio.Group onChange={onChange} value="null">
         <Radio.Button value="unfinished">Unfinished</Radio.Button>
         <Radio.Button value="finished">Finished</Radio.Button>
-        <Radio.Button value="All">All</Radio.Button>
+        <Radio.Button value="all">All</Radio.Button>
       </Radio.Group>
     </div>
   );

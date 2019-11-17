@@ -64,7 +64,9 @@ const Task = ({
         `https://todo-list-nndou-api.herokuapp.com/api/tasks/${task._id}`
       );
       setTasks(tasks.filter(taskCheck => taskCheck._id !== task._id));
-      setCurrentList(tasks.filter(taskCheck => taskCheck._id !== task._id));
+      setCurrentList(
+        currentList.filter(taskCheck => taskCheck._id !== task._id)
+      );
     } catch (err) {
       setError("An error occurred, please reload the page");
     }

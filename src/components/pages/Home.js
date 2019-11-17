@@ -8,6 +8,9 @@ const Home = () => {
   const [tasks, setTasks] = useState([]);
   const [current, setCurrent] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [finishedList, setFinishedList] = useState([]);
+  const [unFinishedList, setUnfinishedList] = useState([]);
+  const [currentList, setCurrentList] = useState([]);
 
   // Get all tasks
   const getTask = async () => {
@@ -20,11 +23,21 @@ const Home = () => {
     }
   };
 
+  // Get Tasks
   useEffect(() => {
     setLoading(true);
     getTask();
     // eslint-disable-next-line
   }, []);
+
+  //Update finishedList and unFinishedList when tasks updated
+  useEffect(() => {
+    setFinishedList(tasks.filter(taskCheck => taskCheck.type === "finished"));
+    setUnfinishedList(
+      tasks.filter(taskCheck => taskCheck.type === "unfinished")
+    );
+    setCurrentList(tasks.filter(taskCheck => taskCheck.type === "unfinished"));
+  }, [tasks]);
 
   const antIcon = <Icon type="loading" style={{ fontSize: 32 }} spin />;
 
@@ -48,6 +61,10 @@ const Home = () => {
               setCurrent={setCurrent}
               setTasks={setTasks}
               tasks={tasks}
+              finishedList={finishedList}
+              setFinishedList={setFinishedList}
+              unFinishedList={unFinishedList}
+              setUnfinishedList={setUnfinishedList}
             />
           </div>
           <div className="col-lg-6">
@@ -55,6 +72,12 @@ const Home = () => {
               tasks={tasks}
               setCurrent={setCurrent}
               setTasks={setTasks}
+              finishedList={finishedList}
+              setFinishedList={setFinishedList}
+              unFinishedList={unFinishedList}
+              setUnfinishedList={setUnfinishedList}
+              currentList={currentList}
+              setCurrentList={setCurrentList}
             />
           </div>
         </div>
