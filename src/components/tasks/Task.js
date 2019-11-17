@@ -74,7 +74,7 @@ const Task = ({
 
   return (
     <Fragment>
-      <div className="task">
+      <div className={task.type === "finished" ? "task bg-light" : "task"}>
         <h5 className="task__description text-left">{task_description}</h5>
         <Button
           className="task__btn"
