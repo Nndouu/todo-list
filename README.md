@@ -22,7 +22,7 @@ In the application, users can do the following:
 
 - Basics: React + React Router + Axios
 - UI lib: Ant Design + Bootstrap 4
-- Backend:Link to backend [todo-list-api]（https://github.com/Nndouu/todo-list-api）
+- Backend:Link to backend [todo-list-api](https://github.com/Nndouu/todo-list-api)
 
 ## Quick Start
 
